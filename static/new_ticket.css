@@ -1,0 +1,19 @@
+.fields
+{
+    margin: 5%;
+}
+.userInputSummary {
+    margin-left: 1px;
+    padding: 1px;
+    width: 500px;
+    resize: none;
+    margin-bottom: 5%;
+  }
+  .userInputDescription {
+    margin: 1px;
+    padding: 1px;
+    height: 200px;
+    width: 500px;
+    resize: none;
+    margin-bottom: 5%;
+  }

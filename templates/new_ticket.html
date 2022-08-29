@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>New Ticket</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/new_ticket.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="text-center">
+            <h2>Add your Ticket Here</h2>
+        </div>
+        <form action= /new_ticket/success method="POST">
+        <div class="fields">
+            <label id="summary-field" style="font-size: 20px;">Summary
+                <span style="color: red;">*</span>
+                <div> 
+                    <textarea class="userInputSummary" name="summary"></textarea>
+                </div>
+                <label id="description-field" style="font-size: 20px;">Description
+                    <div> 
+                        <textarea class="userInputDescription" name="desc" style="font-family: 'Times New Roman', Times, serif;"></textarea>
+                    </div>
+                </label>
+            </label>
+            <p>
+            <label for="status">Status:</label>
+
+                <select name="status" id="status">
+                    <option value="blocked">Blocked</option>
+                    <option value="pending">To Do</option>
+                    <option value="progress">In Progress</option>
+                    <option value="completed">Closed</option>
+                </select>
+            </p>
+        </div>
+        <div class="new_button">
+            <input type="submit" style="background-color: green;color:white;width:150px;
+                        height:40px; margin-left: 5%; margin-bottom: 0%;" value="Create"/>
+        </div>
+        </form>
+    </body>
+</html>

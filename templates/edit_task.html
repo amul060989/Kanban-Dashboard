@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Edit Ticket</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/new_ticket.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="text-center">
+            <h2>Edit Task</h2>
+        </div>
+        {% for task in edit_tasks %}
+        <form action= "/update/success/{{task['id']}}" method="POST">
+        <div class="fields">
+            <label id="summary-field" style="font-size: 20px;">Summary
+                <span style="color: red;">*</span>
+                <div> 
+                    <textarea class="userInputSummary" name="summary">{{task['summary']}}</textarea>
+                </div>
+                <label id="description-field" style="font-size: 20px;">Description
+                    <div> 
+                        <textarea class="userInputDescription" name="desc" style="font-family: 'Times New Roman', Times, serif;">{{task['description']}}</textarea>
+                    </div>
+                </label>
+            </label>
+            <p>
+            <label id="description-field" style="font-size: 20px; padding-bottom: 0%;">Current Status :
+                    <span style="padding-top: 0%; font-weight: normal; font-size: 20 px; font-family:Arial, Helvetica, sans-serif;">{{task['status']}}</span>
+            </label><br>
+
+            <label for="status" style="padding-top: 3%; padding-right: 1%;">New Status:</label>
+
+                <select name="status" id="status">
+                    <option value="blocked">Blocked</option>
+                    <option value="pending">To Do</option>
+                    <option value="progress">In Progress</option>
+                    <option value="completed">Closed</option>
+                </select>
+            </p>
+        </div>
+        <div class="new_button">
+            <input type="submit" style="background-color: green;color:white;width:150px;
+                        height:40px; margin-left: 5%; margin-bottom: 0%;" value="Update"/>
+
+            <span class="new_button">
+                <a href="/delete/{{task['id']}}"><input type="button" style="background-color: red;color:white;width:150px;
+                    height:40px; margin-left: 5%; margin-bottom: 0%;" value="Delete"/>
+                </a>
+            </span>
+        </div>
+        </form>
+        {% endfor %}
+    </body>
+</html>

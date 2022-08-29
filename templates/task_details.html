@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>New Ticket</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/new_ticket.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        {% for details in detail %}
+        <div class="text-center">
+            <h2>Details Page</h2>
+        </div>
+        
+        <div class="fields">
+            <label id="summary-field" style="font-size: 20px;">Summary
+                <div> 
+                    <p style="padding-top: 3%; padding-bottom: 5%; font-weight: normal; font-size: 10 px; font-family: Arial, Helvetica, sans-serif;">{{details['summary']}}</p>
+                </div>
+                <label id="description-field" style="font-size: 20px;">Description
+                    <div> 
+                        <p style="padding-top: 3%; font-weight: normal; font-size: 10 px; font-family: Arial, Helvetica, sans-serif;">{{details['description']}}</p>
+                    </div>
+                </label>
+
+                <br>
+                <label id="description-field" style="font-size: 20px;">Status
+                    <div> 
+                        <span style="padding-top: 3%; font-weight: normal; font-size: 10 px; font-family: Arial, Helvetica, sans-serif;">{{details['status']}}</span>
+                    </div>
+                </label>
+            </label>
+        </div>
+        
+        <span class="new_button">
+          <a href="{{url_for('kanban_home_page')}}">  <input type="submit" style="background-color: orange;color:white;width:150px;
+                        height:40px; margin-left: 5%; margin-bottom: 0%;" value="Go Back"/></a>
+        </span>
+        <span class="new_button">
+            <a href="/delete/{{details['id']}}"><input type='submit' style="background-color: red;color:white;width:150px;
+                        height:40px; margin-left: 5%; margin-bottom: 0%;" value="Delete"/>
+            </a>
+        </span>
+        {% endfor %}
+    </body>
+</html>
