@@ -63,9 +63,7 @@ def update_task(task_id):
             f_summary = request.form['summary']
             if f_summary == '':
                 f_summary = None
-            f_description = request.form['desc']
-            f_status = request.form['status'].lower()
-
+                
             db = SQLAlchemy()
             db.session.query(Tasks).filter(Tasks.id == task_id).update({"summary":request.form.get('summary'), 'description':request.form.get('desc'), 'status':request.form.get('status').lower()})
             db.session.commit()
