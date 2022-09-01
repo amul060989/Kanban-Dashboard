@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>New User</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/new_ticket.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="text-center" >
+            <h2>Add New User</h2></span> 
+        </div>
+        <form action= /new_registration/success method="POST">
+        <div class="fields">
+            <label id="username-field" style="font-size: 20px;">Username
+                <span style="color: red;">*</span>
+                <div> 
+                    <textarea class="username" name="username" style="width: 500px; height: 30px;"></textarea>
+                </div>
+                <label id="password-field" style="font-size: 20px;">Password
+                    <span style="color: red;">*</span>
+                    <div> 
+                        <textarea class="password" name="password" style="font-family: 'Times New Roman', Times, serif; width: 500px; height: 30px;"></textarea>
+                    </div>
+                </label>
+                <br>
+                <label id="name-field" style="font-size: 20px;">First Name
+                    <span style="color: red;">*</span>
+                    <div> 
+                        <textarea class="password" name="first_name" style="font-family: 'Times New Roman', Times, serif; width: 500px; height: 30px;"></textarea>
+                    </div>
+                </label>
+            </label>
+
+            <br>
+            <label id="name-field" style="font-size: 20px;">Last Name
+                <div> 
+                    <textarea class="password" name="last_name" style="font-family: 'Times New Roman', Times, serif; width: 500px; height: 30px;"></textarea>
+                </div>
+            </label>
+        </label>
+        </div>
+        <div class="new_button">
+            <input type="submit" style="background-color: green;color:white;width:150px;
+                        height:40px; margin-left: 5%; margin-bottom: 0%;" value="Create User"/>
+        </div>
+        </form>
+    </body>
+</html>
