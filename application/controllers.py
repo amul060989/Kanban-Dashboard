@@ -6,6 +6,9 @@ from flask import url_for,redirect
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import sessionmaker
 from application.database import db
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 @app.route("/")
 def login_page():
@@ -144,4 +147,32 @@ def registration_success():
             return render_template("registration_error.html")
         
         return redirect(url_for("kanban_home_page"))
+
+@app.route("/summary",methods=["GET","POST"])
+def task_summary():
+
+    blocked_tasks = db.session.query(Tasks).filter(Tasks.status == "blocked").count()
+    pending_tasks = db.session.query(Tasks).filter(Tasks.status == "pending").count()
+    progress_tasks = db.session.query(Tasks).filter(Tasks.status == "progress").count()
+    closed_tasks = db.session.query(Tasks).filter(Tasks.status == "completed").count()
     
+    print(blocked_tasks)
+    left = [1, 2, 3, 4]
+    height = [blocked_tasks,pending_tasks,progress_tasks,closed_tasks]
+
+    tick_label = ['Blocked', 'Pending', 'Progress', 'Closed']
+
+    plt.bar(left,height,tick_label = tick_label,width = 0.5, color = ['red', 'orange','yellow','green'])
+
+    
+    plt.xlabel('Tasks')
+    plt.title('Task Trends')
+
+    plt.savefig("./static/image/trend.png")
+
+    return render_template("summary.html",image="./static/image/trend.png")
+
+
+
+
+

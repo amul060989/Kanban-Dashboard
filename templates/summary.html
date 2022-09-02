@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            .center
+            {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+        </style>
+        <meta charset="utf-8">
+        <title>Summary</title>
+    </head>
+
+    <body>
+        <span style="padding-bottom: 5%;"><h2 style="text-align:center;">Tasks Summary</h2>
+            <a href= "{{url_for('kanban_home_page')}}" style="padding-right:5%; padding-bottom: 5%; float: right;">Back</a>
+        </span>
+        <div class="table" style="padding-left:5%;">
+        <table border="1">
+            <caption>Task Summary</caption>
+            <col width="150">
+                <col width="80">
+                        <tr>
+                            <th>Task Status</th>
+                            <th>Numbers</th>
+                        </tr>
+                        <tr>
+                            <td>Blocked</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Pending</td>
+                            <td>21</td>
+                        </tr>
+
+                        <tr>
+                            <td>Progress</td>
+                            <td>21</td>
+                        </tr>
+
+                        <tr>
+                            <td>Closed</td>
+                            <td>21</td>
+                        </tr>
+        </table>
+        </div>
+        <img class="center" src={{image}} alt="Italian Trulli">
+    </body>
+
+</html>
