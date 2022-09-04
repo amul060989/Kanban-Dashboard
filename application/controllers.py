@@ -156,7 +156,6 @@ def task_summary():
     progress_tasks = db.session.query(Tasks).filter(Tasks.status == "progress").count()
     closed_tasks = db.session.query(Tasks).filter(Tasks.status == "completed").count()
     
-    print(blocked_tasks)
     left = [1, 2, 3, 4]
     height = [blocked_tasks,pending_tasks,progress_tasks,closed_tasks]
 
@@ -170,7 +169,7 @@ def task_summary():
 
     plt.savefig("./static/image/trend.png")
 
-    return render_template("summary.html",image="./static/image/trend.png")
+    return render_template("summary.html",image="./static/image/trend.png", task_count = height)
 
 
 
