@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from application import config
-from application.config import LocalDevelopmentConfig
+from application.config import LocalDev
 from application.database import db
 from flask_restful import Resource,Api
 
@@ -15,7 +15,7 @@ def create_app():
     else:
       # app.logger.info("Staring Local Development.")
       print("Staring Local Development")
-      app.config.from_object(LocalDevelopmentConfig)
+      app.config.from_object(LocalDev)
     db.init_app(app)
     api = Api(app)
     app.app_context().push()

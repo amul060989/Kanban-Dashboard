@@ -9,6 +9,7 @@ from application.database import db
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import datetime
 
 @app.route("/")
 def login_page():
@@ -158,6 +159,7 @@ def task_summary():
     
     left = [1, 2, 3, 4]
     height = [blocked_tasks,pending_tasks,progress_tasks,closed_tasks]
+    print(height)
 
     tick_label = ['Blocked', 'Pending', 'Progress', 'Closed']
 
@@ -169,7 +171,7 @@ def task_summary():
 
     plt.savefig("./static/image/trend.png")
 
-    return render_template("summary.html",image="./static/image/trend.png", task_count = height)
+    return render_template("summary.html",image="/static/image/trend.png", task_count = height)
 
 
 

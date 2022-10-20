@@ -7,7 +7,7 @@ class Config():
     SQLALCHEMY_DATABASE_URI = None
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-class LocalDevelopmentConfig(Config):
+class LocalDev(Config):
     SQLITE_DB_DIR = os.path.join(basedir, "../database")
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(SQLITE_DB_DIR, "daily_tasks.sqlite3")
     DEBUG = True

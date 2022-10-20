@@ -40,6 +40,29 @@
             </a>
         </div>
         <div>
+            
+            <ol style="width:10%; float:left;" class="kanban to-do">
+                <h3 style="text-align:center">
+                    <i class="material-icons" style="color: orange;">warning</i>
+                    To Do
+                </h3>
+                {% for pending_task in pending_tasks %}
+                <li class="item" id= "{{pending_task['id']}}"> 
+                    <h4>{{ pending_task["summary"] }}
+                        <a href="/details/{{pending_task['id']}}"> <i class="material-icons" style="font-size: 15px;">filter_none</i></a>
+                    </h4>
+                    <div class="text" contenteditable="false">
+                        {{ pending_task["description"] }}
+                    </div>
+                </li>
+                    <div class="actions">
+                        <a href="/update/{{pending_task['id']}}"><i class="material-icons">edit</i></a>
+                        <!-- <i class="material-icons red" style="color: red;">remove</i> -->
+                    </div>
+                </li>
+                {% endfor %}
+            </ol>
+
             <ol style="width:10%; float:left;" class="kanban blocked">
                 
                 <h3 style="text-align:center">
@@ -64,27 +87,6 @@
                 </form>
                 {% endfor %}
 
-            </ol>
-            <ol style="width:10%; float:left;" class="kanban to-do">
-                <h3 style="text-align:center">
-                    <i class="material-icons" style="color: orange;">warning</i>
-                    To Do
-                </h3>
-                {% for pending_task in pending_tasks %}
-                <li class="item" id= "{{pending_task['id']}}"> 
-                    <h4>{{ pending_task["summary"] }}
-                        <a href="/details/{{pending_task['id']}}"> <i class="material-icons" style="font-size: 15px;">filter_none</i></a>
-                    </h4>
-                    <div class="text" contenteditable="false">
-                        {{ pending_task["description"] }}
-                    </div>
-                </li>
-                    <div class="actions">
-                        <a href="/update/{{pending_task['id']}}"><i class="material-icons">edit</i></a>
-                        <!-- <i class="material-icons red" style="color: red;">remove</i> -->
-                    </div>
-                </li>
-                {% endfor %}
             </ol>
       
             <ol style="width:10%; float:left;" class="kanban progress">

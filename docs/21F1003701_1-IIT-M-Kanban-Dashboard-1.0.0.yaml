@@ -1,0 +1,119 @@
+---
+openapi: 3.0.0
+info:
+  title: Kanban Task APIs
+  description: This is a simple API to fetch and POST task information from server
+  contact:
+    email: 21f1003701@student.onlinedegree.iitm.ac.in
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/21F1003701_1/IIT-M-Kanban-Dashboard/1.0.0
+  description: SwaggerHub API Auto Mocking
+- url: http://127.0.0.1:8080/
+  description: Kanban Dashboard
+tags:
+- name: Dashboard API
+  description: GET, POST, PUT and DELETE APIs
+- name: amulyaverma
+  description: GET, POST, PUT and DELETE
+paths:
+  /api/<task_id>:
+    get:
+      tags:
+      - GET Info.
+      summary: Get Task info. by Task ID
+      description: "By Passing appropiate task_id, user can fetch task information.                     \n"
+      parameters:
+      - name: task_id
+        in: query
+        description: Task ID to fetch appropiate task.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: fetch result
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+        "404":
+          description: task not found
+    put:
+      tags:
+      - Update Task
+      summary: Update Task Information
+      description: "By Passing appropiate task_id, user can update task information.                     \n"
+      parameters:
+      - name: task_id
+        in: query
+        description: Task ID to fetch appropiate task.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      requestBody:
+        description: Task to update
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "201":
+          description: update successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+        "404":
+          description: task not found
+        "400":
+          description: field missing error
+    delete:
+      tags:
+      - Delete Task
+      summary: Delete Task
+      description: "By Passing appropiate task_id, user can delete the task.                     \n"
+      parameters:
+      - name: task_id
+        in: query
+        description: Task ID to fetch appropiate task.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: delete successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+        "404":
+          description: task not found
+  /api/new_task:
+    post:
+      tags:
+      - create
+      summary: Create New Task
+      description: Adds an new task to the system
+      requestBody:
+        description: Task to be added
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "201":
+          description: Task created successfully
+        "400":
+          description: Wrong request body
+components: {}
